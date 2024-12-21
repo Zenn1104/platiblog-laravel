@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.editorCode {
+    background-color: rgb(240, 242, 245);
+    font-family: Fira Code, Monaco, monospace;
+    display: block;
+    padding: 8px 8px 8px 52px;
+    font-size: 13px;
+    margin: 8px 0 12px 0;
+    tab-size: 2;
+    overflow-x: auto;
+    position: relative;
+}
+
+.editorCode::before {
+    content: attr(data-gutter);
+    position: absolute;
+    background-color: #eee;
+    left: 0;
+    top: 0;
+    border-right: 1px solid #ccc;
+    padding: 8px;
+    color: #777;
+    white-space: pre-wrap;
+    text-align: right;
+    min-width: 25px;
+}
+
+.editorCode::after {
+    content: attr(data-highlight-language);
+    position: absolute;
+    top: 0;
+    right: 3px;
+    padding: 3px;
+    text-transform: uppercase;
+    color: rgb(0, 0, 0, 0.5);
+}

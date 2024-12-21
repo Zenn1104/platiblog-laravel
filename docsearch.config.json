@@ -1,0 +1,35 @@
+{
+    "index_name": "blogs",
+    "start_urls": ["http://localhost:8000/**"],
+    "selectors": {
+        "lvl0": {
+            "selector": "header h1",
+            "global": true,
+            "default_value": "Blog"
+        },
+        "lvl1": "article h2",
+        "lvl2": "article h3",
+        "lvl3": "article h4",
+        "lvl4": "article h5",
+        "lvl5": "article h6",
+        "content": "article p, article li"
+    },
+    "selectors_exclude": [".exclude-from-search"],
+    "custom_settings": {
+        "attributesForFaceting": ["type", "tags"],
+        "attributesToRetrieve": ["hierarchy", "content", "url"],
+        "attributesToHighlight": ["hierarchy", "content"],
+        "attributesToSnippet": ["content:10"],
+        "searchableAttributes": [
+            "unordered(hierarchy.lvl0)",
+            "unordered(hierarchy.lvl1)",
+            "unordered(hierarchy.lvl2)",
+            "unordered(hierarchy.lvl3)",
+            "unordered(hierarchy.lvl4)",
+            "unordered(hierarchy.lvl5)",
+            "content"
+        ]
+    },
+    "rateLimit": 8,
+    "maxDepth": 10
+}
